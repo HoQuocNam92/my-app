@@ -6,11 +6,11 @@ interface BoardProps {
     cells: (string | null)[];
     onClick: (index: number) => void;
 }
-const Board: React.FC<BoardProps> = (props) => {
+const Board: React.FC<BoardProps> = ({ cells, onClick }) => {
     return (
         <div className="game-board">
-            {props.cells.map((item: string | null, index: number) => (
-                <Cell key={index} value={item} onClick={() => props.onClick(index)} />
+            {cells.map((item: string | null, index: number) => (
+                <Cell key={index} value={item} onClick={() => onClick(index)} />
             ))}
         </div>
     );
